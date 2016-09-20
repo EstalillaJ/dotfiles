@@ -1,3 +1,5 @@
-app.window.position.y=90
-app.window.position.x=320
+app.window.position.height=1001
+app.window.position.width=626
+app.window.position.y=38
+app.window.position.x=2567
 app.window.position.saved=true
