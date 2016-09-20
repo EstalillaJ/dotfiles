@@ -1,0 +1,27 @@
+#install packages
+
+
+
+#  Spotify
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update
+sudo apt-get install spotify-client
+
+# i3 / i3-gaps
+sudo apt-get install i3
+sudo apt-get install i3-gaps
+
+
+# dependencies for i3-gaps
+sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev
+
+# Compton
+sudo apt-get install compton
+
+# i3-gaps
+mkdir /usr/src/i3-gaps
+git clone https://www.github.com/Airblader/i3 i3-gaps
+cd i3-gaps
+make
+make install
