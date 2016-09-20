@@ -171,7 +171,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Escape mode "$control"
 
 exec_always compton -fi
-exec_always rofi -modi combi -key-combi alt+d
+exec_always rofi -modi combi -key-combi alt+d -lines 3 -eh 2 -width 40 -padding 100 -opacity "75" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 14"
 
 
 mode "$control" {
@@ -219,6 +219,21 @@ bar {
         }
 }
 
+assign [class="Gnome-terminal"] $workspace1
+assign [class="Firefox"] $workspace2
+assign [class="Atom"] $workspace3
+assign [class="Okular"] $workspace4
+assign [class="Spotify"] $workspace5
+assign [class="TexMaker"] $workspace6
+assign [class="jetbrains-studio"] $workspace7
+
+bindsym $mod+c exec firefox
+# Use mod-Tab and mod+Control+Tab to rotate through the workspace list.
+bindsym $mod+Control+Tab workspace prev
+bindsym $mod+Tab workspace next
+
+for_window [class="^.*"] border pixel 0
+smart_borders on
 
 gaps inner 10
 gaps outer 10
