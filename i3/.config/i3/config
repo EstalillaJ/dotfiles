@@ -25,6 +25,9 @@ font pango:System San Francisco Display 11
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+exec_always --no-startup-id feh --bg-scale --no-xinerama  /usr/share/backgrounds/warty-final-ubuntu.png 
+
+bindsym $mod+x exec nautilus --no-desktop &
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -170,8 +173,8 @@ set $control System Control [S for shutdown, R for restart, E for logout, X for 
 bindsym $mod+r mode "resize"
 bindsym $mod+Escape mode "$control"
 
-exec_always compton -fi
-exec_always rofi -modi combi -key-combi alt+d -lines 3 -eh 2 -width 40 -padding 100 -opacity "75" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 14"
+exec_always compton -f &
+exec_always rofi -modi combi -key-combi alt+d -lines 3 -eh 2 -width 40 -padding 100 -opacity "75" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 14" &
 
 
 mode "$control" {

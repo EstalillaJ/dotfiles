@@ -1,0 +1,5 @@
+curl -O http://fontawesome.io/assets/font-awesome-4.6.3.zip
+unzip font-awesome-4.6.3.zip -d ./
+mv font-awesome-4.6.3/fonts/fontawesome-webfont.ttf ~/.fonts
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ruby -e "$(curl -fsSL https://raw.github.com/supermarin/YosemiteSanFranciscoFont/master/install)"
