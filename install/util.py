@@ -31,8 +31,7 @@ def Install(program, softwareToDownload):
     case[program](softwareToDownload)
 
 def bash(command):
-    subprocess.Popen(command.split(), shell=True, stdin=None, stderr=STDOUT, executable="/bin/bash", stdout=open(os.devnull,"wb"))
-    subprocess.wait()
+    subprocess.call(["sudo"] + command.split())
 
 def Main():
     scriptDir = os.path.dirname(__file__)
@@ -62,9 +61,9 @@ def Main():
     configDir = os.path.join(homeDir, ".config")
     toStow = [name for name in os.listdir(scriptDir) if os.path.isdir(os.path.join(scriptDir, name))]
     for line in toStow:
-        if os.path.exists(os.path.join(homeDir,toStow[toStow.find("/")+1:])):
-            shutil.rmtree(os.path.join(homeDir,toStow[toStow.find("/")+1:]))
-        bash("stow " + toStow[:toStow.find("/")])
+        if os.path.exists(os.path.join(homeDir,line[line.find("/")+1:])):
+            shutil.rmtree(os.path.join(homeDir,line[line.find("/")+1:]))
+        bash("stow " + line[:line.find("/")])
     # stow configs
     print "removing unneeded packages"
     #remove unneeded packages
